@@ -1,0 +1,22 @@
+{
+  "cv_comparison_f1_macro": {
+    "LogisticRegression": 0.7854,
+    "LinearSVC": 0.7992,
+    "ComplementNB": 0.6336,
+    "RandomForest": 0.6711
+  },
+  "best_params": {
+    "clf__C": "5",
+    "tfidf__max_features": "20000",
+    "tfidf__min_df": "2",
+    "tfidf__ngram_range": "(1, 1)"
+  },
+  "accuracy": 0.8345,
+  "f1_macro": 0.8214,
+  "f1_per_class": {
+    "Negative": 0.7392,
+    "Neutral": 0.8712,
+    "Positive": 0.8539
+  },
+  "inference_ms_batch50": 4.46
+}
