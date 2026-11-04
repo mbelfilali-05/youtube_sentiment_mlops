@@ -1,0 +1,11 @@
+venv/
+data/
+logs/
+reports/
+chrome-extension/
+tests/
+.git/
+__pycache__/
+*.pyc
+models/tfidf_vectorizer.joblib
+models/sentiment_model.joblib
