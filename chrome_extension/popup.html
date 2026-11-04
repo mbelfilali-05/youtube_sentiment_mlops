@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <h1>YouTube Sentiment</h1>
+    <button id="theme" title="Toggle dark mode">🌓</button>
+  </header>
+
+  <div class="controls">
+    <button id="analyze" class="primary">Analyze comments</button>
+    <button id="scroll" title="Scroll the page to load more comments">Load more</button>
+  </div>
+  <label class="opt"><input type="checkbox" id="replies" checked /> Include replies</label>
+
+  <div id="loading" class="hidden"><div class="spinner"></div> Analyzing…</div>
+  <div id="error" class="hidden"></div>
+
+  <section id="results" class="hidden">
+    <div class="summary">
+      <div id="donut"><span id="total"></span></div>
+      <div class="bars" id="bars"></div>
+    </div>
+    <div class="meta" id="meta"></div>
+
+    <div class="filters" id="filters">
+      <button data-f="all" class="active">All</button>
+      <button data-f="1">Positive</button>
+      <button data-f="0">Neutral</button>
+      <button data-f="-1">Negative</button>
+    </div>
+
+    <ul id="list"></ul>
+
+    <div class="controls">
+      <button id="copy">Copy results</button>
+      <button id="csv">Export CSV</button>
+    </div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

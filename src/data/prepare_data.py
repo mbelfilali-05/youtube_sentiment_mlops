@@ -2,6 +2,7 @@ import re
 from pathlib import Path
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from src.utils.text_cleaning import clean_text
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw" / "reddit.csv"
@@ -10,19 +11,6 @@ PROCESSED = ROOT / "data" / "processed"
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
 
-URL_RE = re.compile(r"https?://\S+|www\.\S+")
-MENTION_RE = re.compile(r"[@u/]+\w+|r/\w+")
-# On garde lettres, chiffres, espaces et ponctuation expressive (! ? ')
-SPECIAL_RE = re.compile(r"[^a-z0-9\s!?']")
-SPACES_RE = re.compile(r"\s+")
-
-
-def clean_text(text: str) -> str:
-    text = str(text).lower()
-    text = URL_RE.sub(" ", text)
-    text = MENTION_RE.sub(" ", text)
-    text = SPECIAL_RE.sub(" ", text)   # supprime aussi les emojis
-    return SPACES_RE.sub(" ", text).strip()
 
 
 def load_raw() -> pd.DataFrame:
